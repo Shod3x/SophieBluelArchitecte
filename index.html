@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+	<link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+	<section class="bannerEdit">
+		<div class="editP">
+			<i class="fa-regular fa-pen-to-square"></i>
+			<p class="properMod">Mode édition</p>
+		</div>
+	</section>
+<header>
+	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+	<nav>
+		<ul>
+			<li>projets</li>
+			<li>contact</li>
+			<li class="unauth"><a href="login.html">login</a></li>
+			<li class="logged-only"><a href="./" onclick="localStorage.removeItem('token');">logout</a></li>
+			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section id="introduction">
+		<figure> 
+			<img src="./assets/images/sophie-bluel.png" alt="">
+		</figure>
+		<article>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	<section id="portfolio">
+		<div class="flex">
+			<h2>Mes Projets</h2>
+			<div id="openModalBtn" class="editM">
+				<i class="fa-regular fa-pen-to-square"></i>
+				<p class="properMod">modifier</p>
+			</div>
+		</div>
+		<div class="filters" id="filter-button">
+			<button class="button-filter" id="all">Tous</button>
+		</div>
+		<div class="gallery" id="gallery">
+		</div>
+	</section>
+	<section>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<i class="fas fa-arrow-left back" id="goBackBtn"></i>
+			  <span class="close" id="closeModalBtn">&times;</span>
+			  <div  class="modal-center modal-label">
+				<p id="modalLabel"></p>
+			  </div>
+			  <div class="modal-center">
+				<div class="modal-projects">
+					<div id="galleryModal"></div>
+					<div id="modal-add-contentId">
+						<div class="modal-add-pic">
+							<div class="add-pic-column">
+								<img class="ico rm" src="./assets/images/Capture-d_écran-2023-12-12-145244.ico"></img>
+								<button class="add-pic-button rm" onclick="document.getElementById('fileInput').click()">
+									+ Ajouter photo
+								</button>
+								<input type="file" id="fileInput" style="display:none" accept="image/*" class="rm">
+								<p class="rm">jpg, png : 4mo max</p>
+								<img id="previewImage" src="" class="pic-slot" onclick="document.getElementById('fileInput').click()">
+							</div>
+						</div>
+						<script type="module" src="./modal.js"></script>
+						<script type="module" src="./get-data.js"></script>
+						<div class="modal-input">
+							<p class="new-label">Titre</p>
+							<input class="modal-input-uni" type="text" id="titleInput">
+							<p class="new-label">Catégorie</p>
+							<select class="modal-input-uni" id="selectInput">
+								<option value=""></option>
+								<option data-id="1" value="Objets">Objets</option>
+								<option data-id="2" value="Appartements">Appartements</option>
+								<option data-id="3" value="Hôtel & restaurants">Hôtel & restaurants</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			  </div>
+			  <div class="modal-center">
+				<p class="modal-border"></p>
+			  </div>
+			  <div class="modal-center">
+			  	<button id="changeContentBtn" class="modal-button">Ajouter une photo</button>
+			  	<button id="changeContentBtn2" class="invis modal-button">Ajouter une photo</button>
+			  </div>
+			</div>
+		</div>
+	</section>
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+</main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
+</body>
+<script src="./filter.js"></script>
+<script src="./get-data.js"></script>
+<script src="./token.js"></script>
+<script src="./modal.js"></script>
+</html>
